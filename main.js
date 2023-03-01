@@ -1,7 +1,7 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    var html = '<article class="card coffee col-6 p-0" style="width: 47%">';
+    let html = '<article class="card coffee col-6 p-0" style="width: 47%">';
     html += '<div class="card-header">' + coffee.id + '</div>';
     html += '<div class="card-body">' + coffee.name + '</div>';
     html += '<div class="card-footer">' + coffee.roast + '</div>';
@@ -11,32 +11,32 @@ function renderCoffee(coffee) {
 }
 
 function renderCoffees(coffees) {
-    var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
+    let html = '';
+    for(let i = coffees.length - 1; i >= 0; i--) {
         html += renderCoffee(coffees[i]);
     }
     return html;
 }
 
-function updateCoffees(e) {
+function selectByRoast(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
+    let selectedRoast = roastSelection.value;
+    let filteredCoffees = [];
     coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
+        if (coffee.roast === selectedRoast || selectedRoast === "all") {
             filteredCoffees.push(coffee);
         }
     });
     organizeCoffees(filteredCoffees);
 }
 
-function searchCoffees(e){
+function searchByName(e){
     e.preventDefault();
-    var userInput = coffeeSearch.value;
-    var correctedInput = userInput.toLowerCase();
-    var filteredCoffees = [];
+    let userInput = coffeeSearch.value;
+    let correctedInput = userInput.toLowerCase();
+    let filteredCoffees = [];
     coffees.forEach(function (coffee){
-        var filtered = coffee.name.toLowerCase();
+        let filtered = coffee.name.toLowerCase();
 
         if(filtered.indexOf(correctedInput) > -1){
             console.log("win");
@@ -47,13 +47,30 @@ function searchCoffees(e){
 }
 
 function organizeCoffees(filteredCoffees){
+    /*
+    // utilizes both the sort function and an arrow function to organize objects in the array by their ID
+    // This method is harder to grasp at current level, so we are utilizing the method below.
     let sortedCoffees = filteredCoffees.sort(
-        (p1,p2) => (p1.id < p2.id) ? 1 : (p1.id > p2.id) ? -1 : 0);
+        (coffee1,coffee2) => (coffee1.id < coffee2.id) ? 1 : (coffee1.id > coffee2.id) ? -1 : 0);
+     */
+
+    // This method is easier to figure out and explain.
+    // If the first coffee is greater than the second, they swap (coffee2, coffee1)
+    // If the first coffee is less than the second, they will stay in the same order.
+    // If they are equal, they will stay in the same spot
+    let sortedCoffees = filteredCoffees.sort(function (coffee1,coffee2){
+        if (coffee1.id > coffee2.id){
+            return -1;
+        } else if (coffee1.id < coffee2.id){
+            return 1;
+        }
+        return 0;
+    })
     coffeeCards.innerHTML = renderCoffees(sortedCoffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-var coffees = [
+const coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
     {id: 3, name: 'Cinnamon', roast: 'light'},
@@ -70,12 +87,12 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-var coffeeCards = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
-var coffeeSearch = document.querySelector('#coffee-search-bar');
+const coffeeCards = document.querySelector('#coffees');
+const submitButton = document.querySelector('#submit');
+const roastSelection = document.querySelector('#roast-selection');
+const coffeeSearch = document.querySelector('#coffee-search-bar');
 
 organizeCoffees(coffees);
 
-coffeeSearch.addEventListener('keyup', searchCoffees)
-submitButton.addEventListener('click', updateCoffees);
+coffeeSearch.addEventListener('keyup', searchByName)
+submitButton.addEventListener('click', selectByRoast);

@@ -25,16 +25,17 @@
             </div>
 
             <div class="col-4 bg-primary p-3">
-                <form>
-                    <label for="roast-selection"></label>
-                    <select id="roast-selection">
+                <form class="form-group">
+                    <label for="roast-selection">Coffee Roast</label>
+                    <select id="roast-selection" class="form-select">
+                        <option selected>all</option>
                         <option>light</option>
                         <option>medium</option>
                         <option>dark</option>
                     </select>
-                    <input id="submit" type="submit" />
                     <label for="coffee-search-bar">Coffee Name</label>
-                    <input id="coffee-search-bar" type="search">
+                    <input id="coffee-search-bar" class="form-control" type="search">
+                    <input id="submit" type="submit" class="btn bg-light"/>
                 </form>
             </div>
         </section>
