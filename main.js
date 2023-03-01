@@ -1,11 +1,11 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+    var html = '<article class="card coffee col-6 p-0" style="width: 47%">';
+    html += '<div class="card-header">' + coffee.id + '</div>';
+    html += '<div class="card-body">' + coffee.name + '</div>';
+    html += '<div class="card-footer">' + coffee.roast + '</div>';
+    html += '</article>';
 
     return html;
 }
@@ -27,7 +27,23 @@ function updateCoffees(e) {
             filteredCoffees.push(coffee);
         }
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+    coffeeCards.innerHTML = renderCoffees(filteredCoffees);
+}
+
+function searchCoffees(e){
+    e.preventDefault();
+    var userInput = coffeeSearch.value;
+    var correctedInput = userInput.toLowerCase();
+    var filteredCoffees = [];
+    coffees.forEach(function (coffee){
+        var filtered = coffee.name.toLowerCase();
+
+        if(filtered.indexOf(correctedInput) > -1){
+            console.log("win");
+            filteredCoffees.push(coffee);
+        }
+    });
+    coffeeCards.innerHTML = renderCoffees(filteredCoffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -48,10 +64,12 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-var tbody = document.querySelector('#coffees');
+var coffeeCards = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
+var coffeeSearch = document.querySelector('#coffee-search-bar');
 
-tbody.innerHTML = renderCoffees(coffees);
+coffeeCards.innerHTML = renderCoffees(coffees);
 
+coffeeSearch.addEventListener('keyup', searchCoffees)
 submitButton.addEventListener('click', updateCoffees);
