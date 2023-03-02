@@ -67,8 +67,16 @@ function organizeCoffees(filteredCoffees){
         return 0;
     })
     coffeeCards.innerHTML = renderCoffees(sortedCoffees);
-    localStorage.setItem('storedCoffees', coffees)
+    // window.localStorage.setItem("coffees", JSON.stringify(coffees));
 }
+
+// function retrievePreviouslyAddedCoffees(){
+//     //window.localStorage.removeItem("coffees");
+//     const retrievedData = JSON.parse(window.localStorage.getItem("coffees"));
+//     if(retrievedData){
+//        let coffees = retrievedData;
+//     }
+// }
 
 function addCoffee(e) {
     e.preventDefault()
@@ -107,7 +115,9 @@ const coffeeAdd = document.querySelector('#coffee-add-bar');
 const roastAdd = document.querySelector('#roast-selection-add')
 const submitButtonAdd = document.querySelector('#submit-add')
 
+// retrievePreviouslyAddedCoffees(coffees)
 organizeCoffees(coffees);
+
 
 coffeeSearch.addEventListener('keyup', searchByName)
 submitButton.addEventListener('click', selectByRoast);
