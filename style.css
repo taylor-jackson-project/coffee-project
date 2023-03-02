@@ -29,6 +29,14 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-main {
+input[type='submit'] {
+    background-color: #cbad83;
+    color: white;
+    border: 1px solid #e6d2bd
+}
 
+input[type='submit']:hover {
+    background-color: #3e1e06;
+    color: #cbad83;
+    border: 1px solid #e6d2bd
 }
