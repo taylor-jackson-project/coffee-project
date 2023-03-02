@@ -67,7 +67,19 @@ function organizeCoffees(filteredCoffees){
         return 0;
     })
     coffeeCards.innerHTML = renderCoffees(sortedCoffees);
+    localStorage.setItem('storedCoffees', coffees)
 }
+
+function addCoffee(e) {
+    e.preventDefault()
+    let coffeeId = coffees.length + 1
+    let coffeeName = coffeeAdd.value
+    let coffeeRoast = roastAdd.value
+    let newCoffee = {id: coffeeId, name: coffeeName, roast: coffeeRoast}
+    coffees.push(newCoffee)
+    organizeCoffees(coffees)
+}
+
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 const coffees = [
@@ -88,11 +100,15 @@ const coffees = [
 ];
 
 const coffeeCards = document.querySelector('#coffees');
-const submitButton = document.querySelector('#submit');
+const submitButton = document.querySelector('#submit-search');
 const roastSelection = document.querySelector('#roast-selection');
 const coffeeSearch = document.querySelector('#coffee-search-bar');
+const coffeeAdd = document.querySelector('#coffee-add-bar');
+const roastAdd = document.querySelector('#roast-selection-add')
+const submitButtonAdd = document.querySelector('#submit-add')
 
 organizeCoffees(coffees);
 
 coffeeSearch.addEventListener('keyup', searchByName)
 submitButton.addEventListener('click', selectByRoast);
+submitButtonAdd.addEventListener('click', addCoffee)

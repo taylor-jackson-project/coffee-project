@@ -25,6 +25,7 @@
             </div>
 
             <div class="col-4 bg-primary p-3">
+                <h2 class="text-center p-3">Select a Coffee!</h2>
                 <form class="form-group">
                     <label for="roast-selection">Coffee Roast</label>
                     <select id="roast-selection" class="form-select">
@@ -35,7 +36,21 @@
                     </select>
                     <label for="coffee-search-bar">Coffee Name</label>
                     <input id="coffee-search-bar" class="form-control" type="search">
-                    <input id="submit" type="submit" class="btn bg-light"/>
+                    <input id="submit-search" type="submit" class="btn bg-light"/>
+                </form>
+
+                <h2 class="text-center p-3">Add a Coffee!</h2>
+
+                <form class="form-group">
+                    <label for="roast-selection-add">Coffee Roast</label>
+                    <select id="roast-selection-add" class="form-select">
+                        <option>light</option>
+                        <option>medium</option>
+                        <option>dark</option>
+                    </select>
+                    <label for="coffee-add-bar">Coffee Name</label>
+                    <input id="coffee-add-bar" class="form-control" type="text">
+                    <input id="submit-add" type="submit" class="btn bg-light"/>
                 </form>
             </div>
         </section>
