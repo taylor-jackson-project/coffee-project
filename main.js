@@ -67,16 +67,16 @@ function organizeCoffees(filteredCoffees){
         return 0;
     })
     coffeeCards.innerHTML = renderCoffees(sortedCoffees);
-    // window.localStorage.setItem("coffees", JSON.stringify(coffees));
+    window.localStorage.setItem("savedCoffees", JSON.stringify(coffees));
 }
 
-// function retrievePreviouslyAddedCoffees(){
-//     //window.localStorage.removeItem("coffees");
-//     const retrievedData = JSON.parse(window.localStorage.getItem("coffees"));
-//     if(retrievedData){
-//        let coffees = retrievedData;
-//     }
-// }
+ function retrievePreviouslyAddedCoffees(){
+     //window.localStorage.removeItem("savedCoffees");
+     const retrievedData = JSON.parse(window.localStorage.getItem("savedCoffees"));
+     if(retrievedData){
+         coffees = retrievedData;
+     }
+ }
 
 function addCoffee(e) {
     e.preventDefault()
@@ -90,7 +90,7 @@ function addCoffee(e) {
 
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-const coffees = [
+let coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
     {id: 3, name: 'Cinnamon', roast: 'light'},
@@ -115,7 +115,7 @@ const coffeeAdd = document.querySelector('#coffee-add-bar');
 const roastAdd = document.querySelector('#roast-selection-add')
 const submitButtonAdd = document.querySelector('#submit-add')
 
-// retrievePreviouslyAddedCoffees(coffees)
+retrievePreviouslyAddedCoffees(coffees)
 organizeCoffees(coffees);
 
 
