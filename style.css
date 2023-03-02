@@ -4,7 +4,7 @@ h1 {
     padding: .2em;
 }
 header {
-    width: 100%;
+    width: auto;
     height: 80%;
     margin: 3em 0;
 }
@@ -13,6 +13,10 @@ header {
 }
 .card-body {
     font-size: x-large;
+    background-color: #a88b6c;
+    text-align: left;
+    border-radius: 5px 5px 0 0;
+    border-color: black;
 }
 .card {
     background-color: hsl(35, 51%, 70%);
@@ -27,6 +31,7 @@ body {
     font-family: 'Lobster', cursive;
     background-image: url("img/coffeebeans.png");
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
 }
 input[type='submit'] {
@@ -36,6 +41,32 @@ input[type='submit'] {
 }
 
 input[type='submit']:hover {
+    background-color: #3e1e06;
+    color: #cbad83;
+    border: 1px solid #e6d2bd
+}
+.card-body:hover {
+    background-color: #3e1e06;
+    color: #cbad83;
+    border: 1px solid #e6d2bd
+}
+.modal-body {
+    background-color: #cbad83;
+}
+.modal-header {
+    background-color: #a88b6c;
+    border-bottom: 1px black solid;
+}
+.modal-footer {
+    background-color: #a88b6c;
+    border-top: 1px black solid;
+}
+.btn {
+    background-color: #b99a5f;
+    color: white;
+    border: 1px solid #e6d2bd
+}
+.btn:hover {
     background-color: #3e1e06;
     color: #cbad83;
     border: 1px solid #e6d2bd

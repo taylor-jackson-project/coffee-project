@@ -3,7 +3,7 @@
 function renderCoffee(coffee) {
     let html = '<article class="card coffee p-0">';
     html += '<div class="card-header">' + coffee.id + '</div>';
-    html += '<div class="card-body">' + coffee.name + '</div>';
+    html += '<button class="card-body btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBox' + coffee.id + '">' + coffee.name + '</button>';
     html += '<div class="card-footer">' + coffee.roast + '</div>';
     html += '</article>';
 
