@@ -71,11 +71,13 @@ function organizeCoffees(filteredCoffees){
 }
 
  function retrievePreviouslyAddedCoffees(){
-     //window.localStorage.removeItem("savedCoffees");
      const retrievedData = JSON.parse(window.localStorage.getItem("savedCoffees"));
      if(retrievedData){
          coffees = retrievedData;
      }
+ }
+ function clearCoffees(){
+     window.localStorage.removeItem("savedCoffees");
  }
 
 function addCoffee(e) {
@@ -114,6 +116,7 @@ const coffeeSearch = document.querySelector('#coffee-search-bar');
 const coffeeAdd = document.querySelector('#coffee-add-bar');
 const roastAdd = document.querySelector('#roast-selection-add')
 const submitButtonAdd = document.querySelector('#submit-add')
+const clearButton = document.querySelector('#clear-coffee')
 
 retrievePreviouslyAddedCoffees(coffees)
 organizeCoffees(coffees);
@@ -122,3 +125,4 @@ organizeCoffees(coffees);
 coffeeSearch.addEventListener('keyup', searchByName)
 submitButton.addEventListener('click', selectByRoast);
 submitButtonAdd.addEventListener('click', addCoffee)
+clearButton.addEventListener('click', clearCoffees)
