@@ -17,6 +17,8 @@ header {
 .card {
     background-color: hsl(35, 51%, 70%);
     border: 0;
+    width: 225px;
+
 }
 .card-footer {
     font-family: 'Oswald', sans-serif;
