@@ -33,6 +33,11 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+    display: none;
 }
 input[type='submit'] {
     background-color: #cbad83;
