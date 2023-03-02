@@ -1,9 +1,32 @@
-table {
-    border-collapse: collapse;
-    margin: 15px 0;
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5em;
+    padding: .2em;
 }
+header {
+    width: 100%;
+    height: 80%;
+    margin: 3em 0;
+}
+.card-header {
+    display: none;
+}
+.card-body {
+    font-size: x-large;
+}
+.card {
+    background-color: hsl(35, 51%, 70%);
+    border: 0;
+}
+.card-footer {
+    font-family: 'Oswald', sans-serif;
+}
+body {
+    font-family: 'Lobster', cursive;
+    background-image: url("img/coffeebeans.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main {
 
-td, th {
-    border: 1px solid black;
-    padding: 5px 10px;
 }
