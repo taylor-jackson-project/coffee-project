@@ -32,7 +32,7 @@ body, h1, h2, h3, h4, h5, p, figure, picture {
 /* ----- General Styling ----- */
 body {
     font-family: var(--ff-body);
-    background-image: url("img/coffeebeans.png");
+    background-image: url("/assets/img/coffeebeans.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
