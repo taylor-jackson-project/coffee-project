@@ -107,7 +107,7 @@ function createModals(coffees){
         }
         html += '</div>'
         html += '<div class="modal-footer">';
-        html += '<button type="button" class="btn" data-bs-dismiss="modal">Close</button>';
+        html += '<br>';
         html += '</div>';
         html += '</div>';
         html += '</div>';
