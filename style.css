@@ -71,7 +71,9 @@ h3 {
     text-align: center;
     padding: var(--padding);
 }
-
+#coffees {
+    padding-bottom: 2em;
+}
 
 /* ----- Card Styles ----- */
 .card {
