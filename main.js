@@ -1,8 +1,7 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    let html = '<article class="card coffee p-0">';
-    html += '<div class="card-header">' + coffee.id + '</div>';
+    let html = '<article class="card p-0">';
     html += '<button class="card-body btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBox' + coffee.id + '">' + coffee.name + '</button>';
     html += '<div class="card-footer">' + coffee.roast + '</div>';
     html += '</article>';
@@ -94,10 +93,10 @@ function addCoffee(e) {
 function createModals(coffees){
     let html = '';
     coffees.forEach(function(coffee) {
-        html += '<div class="modal fade" id="modalBox' + coffee.id + '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">'
+        html += '<div class="modal fade" id="modalBox' + coffee.id + '" tabindex="-1" aria-labelledby="coffeeModalLabel" aria-hidden="true">'
         html += '<div class="modal-dialog">';
         html += '<div class="modal-header">';
-        html += '<h5 class="modal-title" id="exampleModalLabel">' + coffee.name + '</h5>';
+        html += '<h3 class="modal-title" id="coffeeModalLabel">' + coffee.name + '</h3>';
         html += '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
         html += '</div>';
         html += '<div class="modal-body text-center">';

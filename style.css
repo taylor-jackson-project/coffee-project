@@ -1,34 +1,37 @@
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 5em;
-    padding: .2em;
-}
-header {
-    width: auto;
-    height: 80%;
-    margin: 3em 0;
-}
-.card-header {
-    display: none;
-}
-.card-body {
-    font-size: x-large;
-    background-color: #a88b6c;
-    text-align: left;
-    border-radius: 5px 5px 0 0;
-    border-color: black;
-}
-.card {
-    background-color: hsl(35, 51%, 70%);
-    border: 0;
-    width: 225px;
+:root {
+    --color-primary-light: hsl(35, 51%, 70%);
+    --color-primary-medium: hsl(39, 36%, 53%);
+    --color-primary-dark: hsl(26, 82%, 13%);
+    --color-neutral-white: hsl(0, 0%, 96%);
+    --color-neutral-black: hsl(213, 12%, 15%);
+    --color-neutral-transparent: hsla(0, 0%, 96%, 0.75);
+
+    --ff-title: 'Playfair Display', serif;
+    --ff-heading: 'Lobster', cursive;
+    --ff-body: 'Oswald', sans-serif;
+
+    --padding: .2em;
+    --margin-bottom: .5em;
 
 }
-.card-footer {
-    font-family: 'Oswald', sans-serif;
+
+
+/* ----- Styling Reset ----- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
+
+body, h1, h2, h3, h4, h5, p, figure, picture {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ----- General Styling ----- */
 body {
-    font-family: 'Lobster', cursive;
+    font-family: var(--ff-body);
     background-image: url("img/coffeebeans.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -36,43 +39,102 @@ body {
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
+
 body::-webkit-scrollbar {
     display: none;
 }
+
+header {
+    width: auto;
+    height: 80%;
+    margin: 3em 0;
+}
+
+h1 {
+    font-family: var(--ff-title);
+    font-size: 5em;
+    text-align: center;
+    padding: var(--padding);
+    background-color: var(--color-neutral-transparent);
+}
+
+h2 {
+    font-family: var(--ff-heading);
+    font-size: 3em;
+    text-align: center;
+    padding: var(--padding);
+}
+
+h3 {
+    font-family: var(--ff-heading);
+    font-size: 2em;
+    text-align: center;
+    padding: var(--padding);
+}
+
+
+/* ----- Card Styles ----- */
+.card {
+    border: 0;
+    width: 225px;
+}
+
+.card-header {
+    display: none;
+}
+
+.card-body {
+    font-family: var(--ff-heading);
+    font-size: x-large;
+    text-align: left;
+    border-radius: 5px 5px 0 0;
+    border: none;
+}
+
+.btn {
+    background-color: var(--color-primary-medium);
+    color: var(--color-neutral-white);
+}
+.btn:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-primary-medium);
+}
+
+
+.card-footer {
+    background-color: var(--color-primary-light);
+}
+
+
+/* ----- Form Styles ----- */
+input, select{
+    margin-bottom: var(--margin-bottom);
+    width: 100%;
+}
+
 input[type='submit'] {
-    background-color: #cbad83;
-    color: white;
-    border: 1px solid #e6d2bd
+    background-color: var(--color-primary-light);
+    color: var(--color-neutral-white);
 }
 
 input[type='submit']:hover {
-    background-color: #3e1e06;
-    color: #cbad83;
-    border: 1px solid #e6d2bd
+    background-color: var(--color-primary-dark);
+    color: var(--color-primary-light);
 }
-.card-body:hover {
-    background-color: #3e1e06;
-    color: #cbad83;
-    border: 1px solid #e6d2bd
+
+.invisible {
+    overflow-x: hidden;
+    word-wrap: none;
 }
+/* ----- Modal Styles ----- */
 .modal-body {
-    background-color: #cbad83;
+    background-color: var(--color-primary-light);
 }
 .modal-header {
-    background-color: #a88b6c;
-    border-bottom: 1px black solid;
+    background-color: var(--color-primary-medium);
+    border-bottom: 1px var(--color-primary-dark) solid;
 }
 .modal-footer {
-    background-color: #a88b6c;
-    border-top: 1px black solid;
-}
-.btn {
-    background-color: #b99a5f;
-    color: white;
-    border: 1px solid #e6d2bd
-}
-.btn:hover {
-    background-color: #3e1e06;
-    color: #cbad83;
-    border: 1px solid #e6d2bd
+    background-color: var(--color-primary-medium);
+    border-top: 1px var(--color-primary-dark) solid;
 }
