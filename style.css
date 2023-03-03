@@ -75,12 +75,9 @@ h3 {
 
 /* ----- Card Styles ----- */
 .card {
+    padding: 0;
     border: 0;
     width: 225px;
-}
-
-.card-header {
-    display: none;
 }
 
 .card-body {
@@ -130,11 +127,14 @@ input[type='submit']:hover {
 .modal-body {
     background-color: var(--color-primary-light);
 }
+
 .modal-header {
+    color: var(--color-neutral-white);
     background-color: var(--color-primary-medium);
-    border-bottom: 1px var(--color-primary-dark) solid;
+    border-bottom: 5px var(--color-primary-dark) solid;
 }
+
 .modal-footer {
     background-color: var(--color-primary-medium);
-    border-top: 1px var(--color-primary-dark) solid;
+    border-top: 5px var(--color-primary-dark) solid;
 }

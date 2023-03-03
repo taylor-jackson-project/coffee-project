@@ -1,7 +1,7 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    let html = '<article class="card p-0">';
+    let html = '<article class="card">';
     html += '<button class="card-body btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBox' + coffee.id + '">' + coffee.name + '</button>';
     html += '<div class="card-footer">' + coffee.roast + '</div>';
     html += '</article>';
@@ -97,7 +97,6 @@ function createModals(coffees){
         html += '<div class="modal-dialog">';
         html += '<div class="modal-header">';
         html += '<h3 class="modal-title" id="coffeeModalLabel">' + coffee.name + '</h3>';
-        html += '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
         html += '</div>';
         html += '<div class="modal-body text-center">';
         if(coffee.id > 14){
@@ -108,7 +107,7 @@ function createModals(coffees){
         }
         html += '</div>'
         html += '<div class="modal-footer">';
-        html += '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>';
+        html += '<button type="button" class="btn" data-bs-dismiss="modal">Close</button>';
         html += '</div>';
         html += '</div>';
         html += '</div>';
